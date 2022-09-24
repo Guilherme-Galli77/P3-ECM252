@@ -1,0 +1,187 @@
+React- criação de componentes. Entre outras coisas, cada componente tem como responsabilidade “explicar” como se dá
+a exibição visual de partes de uma interface gráfica mais complexa. Cada componente gerencia seu próprio estado e eles podem se comunicar por meio de um
+mecanismo conhecido como props. 
+
+Props-Props are arguments passed into React components. Props are passed to components via HTML attributes. props stands for properties.
+
+- Um componente ReactJS pode ser definido de duas formas diferentes: utilizando uma função ou uma classe.
+-Em ambos os casos, ele deve produzir código HTML que explica como se dá a sua exibição. Além disso, ele pode definir funções
+responsáveis pela manipulação de eventos gerados pelo usuário.
+
+- Para utilizar o componente, devemos especificar um contêiner HTML (um div, por
+exemplo) cujo conteúdo será substituído pelo HTML produzido pelo componente.
+
+Nota. O método querySelector é capaz de buscar referências na árvore DOM
+utilizando qualquer seletor CSS. O método getElementById, por sua vez, faz
+buscas utilizando somente o id de um elemento. Ambos resolvem o problema, neste
+caso.
+
+==============================================================================
+JSX
+
+- Em JSX, style é um prop (mais sobre isso adiante) ao qual atribuímos uma
+expressão Javascript. Usamos { } para indicar que o que vem a seguir é uma
+expressão Javascript. Quando usamos { } pela segunda vez, estamos especificando
+um objeto JSON.
+
+- As propriedades CSS que são escritas em kebab case passam a ser escritas em
+camel case. Exemplo: background-color em CSS se escreve backgroundColor em
+JSX.
+
+- for é uma palavra reservada da linguagem Javascript. Por isso, usamos htmlFor
+como atributo do elemento label.
+
+-Para unidades de medida: React will automatically append a “px” suffix to certain numeric inline style
+properties. If you want to use units other than “px”, specify the value as a string
+with the desired unit.”
+
+- As constantes como white, none e auto devem ser expressas entre aspas simples
+ou duplas.
+=====================================================================================
+Apostila 2
+props – que vem de properties. Trata-se de um mecanismo que
+permite a “entrega” de dados a componentes quando estes são utilizados por meio
+de sua tag. É análogo à passagem de argumentos entre funções, comum em
+qualquer linguagem de programação.
+
+Assim como um componente React pode
+utilizar elementos HTML comuns, ele também pode utilizar outros componentes
+React previamente definidos. 
+
+componentes React podem ser aninhados.
+Uma vez que um componente React tenha sido definido, ele pode ser utilizado
+inúmeras vezes. Ou seja, componentes React são reutilizáveis.
+
+ A cada vez que é
+utilizado, um componente React pode se apresentar de forma diferente devido a
+valores diferentes que lhe foram entregues.
+
+Neste exemplo, utilizaremos o Bootstrap para tratar dos
+aspectos visuais da aplicação
+
+react-bootstrap. Trata-se de uma implementação dos componentes do Bootstrap
+usando componentes React. Assim, cada componente do Bootstrap pode ser
+utilizado como um componente React
+
+Font Awesome é o nome de uma biblioteca que
+viabiliza o uso de ícones de alta qualidade
+
+O código HTML que define cada pedido é
+essencialmente igual aos demais, a menos do conteúdo. Trata-se de um bloco de
+código que desejamos reutilizar em diferentes partes da aplicação. Esse tipo de
+código deve ser definido como um componente React à parte
+
+ O nome de um componente React pode ser utilizado de maneira semelhante ao
+uso de uma tag HTML. Quando fazemos isso, a função que o define é colocada em
+execução, produzindo a expressão JSX que especificamos. Assim, o componente
+React ‘Pedido’ pode ser utilizado no arquivo index.js como destaca o Bloco de Código
+2.6.4.
+
+Estamos falando do mecanismo conhecido como props. Trata-se de um mecanismo
+extremamente simples: quando utilizamos um componente por meio de sua tag,
+especificamos pares chave/valor que ele poderá utilizar internamente. Essas são as
+suas propriedades.
+
+“Cartões” são elementos muito
+utilizados por aplicações para exibir conteúdo. Podemos promover ainda mais o nível
+de reusabilidade de nossos componentes criando um componente que seja capaz
+de representar cartões de maneira independente, não estando atrelado à exibição
+de pedidos. 
+
+propriedade implícita
+chamada children. Ela representa os elementos “filhos” de um Cartao, especificados
+no momento de seu uso. 
+
+====================================================================
+Apostila 3
+
+Componentes React podem ser definidos de duas formas:
+- Utilizando funções (comuns ou arrow functions)
+- Utilizando classes
+
+Independentemente da forma como um componente React é definido, o seu funcionamento
+é sempre o mesmo. Ele deve produzir HTML (mais comumente utilizando JSX) que
+descreve seu aspecto visual e lidar com eventos gerados por interações com o usuário.
+
+Desde a versão 16.8 do React, graças ao mecanismo conhecido como Hooks, componentes
+funcionais também podem executar código em momentos específicos e podem possuir
+“estado”.
+
+Hooks, componentes definidos por meio de classes
+precisavam ser utilizados. 
+
+ESTADO 
+
+Componentes baseados em classes possuem estado. Trata-se de um simples objeto JSON envolvido em diferentes situações de
+interesse. As suas principais características são as seguintes:
+
+- Em versões anteriores à versao 16.8 do React, a noção de estado somente podia ser
+associada a componentes definidos por meio de classes.
+- O estado de um componente é um simples objeto JSON que possui dados que são de
+interesse ao componente, como dados que serão exibidos na tela, por exemplo.
+- Quando o estado de um componente é atualizado, o componente é renderizado
+novamente automaticamente e muito rapidamente.
+- O estado de um componente deve ser criado quando ele é instanciado, o que pode ser
+feito em seu construtor.
+- A função setState deve ser utilizada para atualizar o estado de um componente.
+
+
+Cabe à função render produzir a
+expressão JSX que define a aparência visual do componente.
+
+Repare como a função render é chamada a cada vez que o estado do
+componente é atualizado.--> index.js React3
+
+
+====================================================================
+Apostila 4
+
+Componentes React definidos por meio de classes possuem um ciclo de vida que é
+caracterizado pela seguinte coleção de métodos. O construtor também faz parte dele.
+- O construtor
+- O método render
+- O método componentDidMount
+- O método componentDidUpdate
+- O método componentWillUnmount
+
+É
+importante observar que cada componente tem o seu próprio ciclo de vida.
+
+O método componentWillUnmount somente é colocado em execução quando um
+componente é removido do DOM
+o componente principal da aplicação, representado por App, é filho da div
+cujo id é root. Quando ela é removida do DOM, todos os seus filhos também são. Isso quer
+dizer que, após clicar no botão de teste, o componente App será removido e a tela
+deverá ficar em branco.
+
+VER TABELA 2.2.1
+
+É recomendável reservar o construtor para atividades mais rápidas, como inicializar
+o estado do componente. O método componentDidMount, por outro lado, pode ser utilizado
+para atividades de inicialização um pouco mais demoradas, especialmente pelo fato de, no
+momento de sua execução, o componente já estar visível para o usuário. Em geral, é melhor
+mostrar um componente parcialmente visível para o usuário rapidamente do que demorar
+muito para mostrar um componente completo.
+
+
+(Um exemplo de aplicação para o método componentWillUnmount) Suponha que
+desejamos que o horário, uma vez exibido, seja incrementado a cada segundo. Utilizando
+Javascript “puro”, podemos conseguir esse efeito usando a função setInterval. Lembre-se
+que ela recebe uma função e um valor numérico - em milissegundos - como parâmetro. A
+sua missão é agendar a execução da função, o que deve acontecer a cada intervalo de tempo
+especificado. Quando a repetição não for mais de interesse, devemos chamar a função
+clearInterval, a fim de evitar que a execução agendada prossiga indefinidamente. Isso será
+feito no método componentWillUnmount
+
+
+Quando a aplicação inicia, antes de o usuário decidir se deseja
+liberar ou bloquear o acesso à sua localização, pode ser de interesse exibir um componente
+que indica que o aplicativo está aguardando esta decisão. Poderíamos utilizar, por exemplo,
+um Spinner do Bootstrap.
+
+
+O React possui, no entanto, um mecanismo próprio para isso. Seu uso torna o código mais
+limpo e elegante. Componentes React possuem uma propriedade chamada defaultProps.
+Basta associarmos a ela um objeto JSON que possui todos os props de interesse associados
+a seus valores padrão. Uma vez feita a sua definição, o teste explícito feito anteriormente já
+não é necessário. 
